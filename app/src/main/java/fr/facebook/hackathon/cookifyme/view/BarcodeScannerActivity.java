@@ -1,5 +1,6 @@
 package fr.facebook.hackathon.cookifyme.view;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.SparseArray;
@@ -10,6 +11,7 @@ import com.google.android.gms.vision.barcode.Barcode;
 import java.util.List;
 
 import fr.facebook.hackathon.cookifyme.R;
+import fr.facebook.hackathon.cookifyme.api.BarcodeLookupApi;
 import info.androidhive.barcode.BarcodeReader;
 
 public class BarcodeScannerActivity extends AppCompatActivity implements BarcodeReader.BarcodeReaderListener{
@@ -27,12 +29,7 @@ public class BarcodeScannerActivity extends AppCompatActivity implements Barcode
         // play beep sound
         barcodeReader.playBeep();
 
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText(getApplicationContext(), "Barcode: " + barcode.displayValue, Toast.LENGTH_SHORT).show();
-            }
-        });
+        BarcodeLookupApi.getApi(this).requestIngredient(barcode.displayValue);
     }
 
     @Override

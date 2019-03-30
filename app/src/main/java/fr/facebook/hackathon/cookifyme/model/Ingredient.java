@@ -1,11 +1,14 @@
 package fr.facebook.hackathon.cookifyme.model;
 
 
-public class Ingredient {
+import java.io.Serializable;
+
+public class Ingredient implements Serializable {
 
     private String name;
-    private Category category;
+    private String category;
     private int quantity;
+
     public String getName() {
         return name;
     }
@@ -14,11 +17,11 @@ public class Ingredient {
         this.name = name;
     }
 
-    public Category getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 
@@ -30,11 +33,13 @@ public class Ingredient {
         this.quantity = quantity;
     }
 
-    public Ingredient(String name, Category category, int quantity) {
+    public Ingredient(String name, String category, int quantity) {
         this.name = name;
         this.category = category;
         this.quantity = quantity;
     }
+
+    public Ingredient() { }
 
     @Override
     public String toString() {
