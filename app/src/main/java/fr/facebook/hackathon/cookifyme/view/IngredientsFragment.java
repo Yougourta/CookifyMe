@@ -17,5 +17,19 @@ public class IngredientsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_ingredients, container, false);
+        /*ListView ingredientsList = (ListView) findViewById(R.id.ingredientsList);
+
+        List<Ingredient> ingredients = new ArrayList<>();
+
+        Ingredient apple = new Ingredient("Apple", Category.FRUIT, 3);
+        Ingredient orange = new Ingredient("Orange", Category.FRUIT, 2);
+        Ingredient kale = new Ingredient("Kale", Category.VEGETABLE, 1);
+
+        ingredients.add(apple);
+        ingredients.add(orange);
+        ingredients.add(kale);
+
+        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.ingredient_item_layout, (List) ingredients);
+        ingredientsList.setAdapter(adapter);*/
     }
 }
