@@ -1,4 +1,4 @@
-package fr.facebook.hackathon.cookifyme;
+package fr.facebook.hackathon.cookifyme.view;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,6 +8,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+
+import fr.facebook.hackathon.cookifyme.R;
 
 public class MainActivity extends AppCompatActivity {
 
