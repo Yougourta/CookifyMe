@@ -5,7 +5,7 @@ public class Ingredient {
 
     private String name;
     private Category category;
-    private int quantity;
+
     public String getName() {
         return name;
     }
@@ -22,22 +22,16 @@ public class Ingredient {
         this.category = category;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
 
-    public Ingredient(String name, Category category, int quantity) {
+    public Ingredient(String name, Category category) {
         this.name = name;
         this.category = category;
-        this.quantity = quantity;
+
     }
 
     @Override
     public String toString() {
-        return  name + ", " + quantity;
+        return  name;
     }
 }
