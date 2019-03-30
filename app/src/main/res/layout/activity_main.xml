@@ -24,7 +24,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/appBar"
-        android:layout_above="@+id/btn_recruiter"/>
+        android:layout_above="@+id/btn_recruiter">
+
+        <ListView
+            android:id="@+id/ingredientsList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/btn_recruiter"
