@@ -7,15 +7,14 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +49,7 @@ public class IngredientsFragment extends Fragment {
                 final Dialog dialog = new Dialog(getContext());
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.setView(R.layout.fragment_ingredients_dialog);
-                AlertDialog alertDialog = builder.create();
+                final AlertDialog alertDialog = builder.create();
                 alertDialog.show();
 
                 ImageButton vegies = alertDialog.findViewById(R.id.fruits_vegetables);
@@ -59,8 +58,27 @@ public class IngredientsFragment extends Fragment {
                 vegies.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(getContext(), ObjectRecognitionActivity.class);
-                        startActivity(intent);
+                        final Dialog dialog2 = new Dialog(getContext());
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                        builder.setView(R.layout.fragment_ingredients_manual_dialog);
+                        final AlertDialog alertDialog2 = builder.create();
+                        alertDialog2.show();
+                        final EditText name = alertDialog2.findViewById(R.id.name_edit_text);
+                        final EditText qte = alertDialog2.findViewById(R.id.quantity_edit_text);
+
+                        Button add = alertDialog2.findViewById(R.id.addIng);
+                        add.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Ingredient ingredient = new Ingredient();
+                                ingredient.setName(name.getText().toString());
+                                ingredient.setImage("https://farm8.staticflickr.com/7814/40537754913_519d5d54d3_z.jpg");
+                                IngredientsFragment.ingredients.add(ingredient);
+                                IngredientsFragment.adapter.notifyDataSetChanged();
+                                alertDialog2.cancel();
+                                alertDialog.cancel();
+                            }
+                        });
                     }
                 });
 

@@ -5,9 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".view.RecepiesFragment">
 
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list_recipes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="poooooop" />
+        android:scrollbars="vertical" />
 
 </FrameLayout>

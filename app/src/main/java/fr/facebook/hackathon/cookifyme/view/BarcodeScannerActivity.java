@@ -1,6 +1,5 @@
 package fr.facebook.hackathon.cookifyme.view;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.SparseArray;
@@ -14,7 +13,6 @@ import java.util.List;
 
 import fr.facebook.hackathon.cookifyme.R;
 import fr.facebook.hackathon.cookifyme.api.BarcodeLookupApi;
-import info.androidhive.barcode.BarcodeReader;
 import xyz.belvi.mobilevisionbarcodescanner.BarcodeRetriever;
 
 public class BarcodeScannerActivity extends AppCompatActivity implements BarcodeRetriever {

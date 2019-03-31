@@ -32,7 +32,7 @@ public class BarcodeLookupApi {
 
     public void requestIngredient(String barcode){
         RequestQueue queue = Volley.newRequestQueue(context);
-        final String url = "https://api.barcodelookup.com/v2/products?barcode="+barcode+"&key=ud5fravplg7q1t8754li29s0931f6h";
+        final String url = "https://api.barcodelookup.com/v2/products?barcode="+barcode+"&key=sp2js64j83kw1gipuskv3di3ke6xrn";
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String s) {
