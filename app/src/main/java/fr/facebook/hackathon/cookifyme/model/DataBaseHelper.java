@@ -7,6 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DataBaseHelper extends SQLiteOpenHelper {
 
     private static final String TAG="DataBaseHelper";
@@ -83,5 +86,28 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("SELECT * FROM "+ TABLE_NAME, null);
         return res;
+    }
+
+    public  Ingredient getIngridient(String s){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Ingredient i = new Ingredient();
+        Cursor c = db.rawQuery("SELECT * FROM "+ TABLE_NAME + " WHERE name = "+s, null);
+        if(c.getCount() == 0 || c.getCount() > 1){
+            Log.d(TAG, "onCreate: ERROR");
+        }else{
+            while(c.moveToNext()){ //There is only one result...
+                i.setName(c.getString(0));
+                i.setimageURL(c.getString(1));
+            }
+
+        }
+        return i;
+    }
+
+    public Integer deleteIngredient(String s){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_NAME,
+                "name = ? ",
+                new String[] { s });
     }
 }

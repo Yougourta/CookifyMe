@@ -4,7 +4,7 @@ package fr.facebook.hackathon.cookifyme.model;
 public class Ingredient {
 
     private String name;
-    private String category;
+    private String imageURL;
 
     public String getName() {
         return name;
@@ -14,21 +14,24 @@ public class Ingredient {
         this.name = name;
     }
 
-    public String getCategory() {
-        return category;
+    public String getImageURL() {
+        return imageURL;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setimageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 
 
-    public Ingredient(String name, String category) {
+    public Ingredient(String name, String imageURL) {
         this.name = name;
-        this.category = category;
+        this.imageURL = imageURL;
 
     }
 
+    public Ingredient(){
+
+    }
     @Override
     public String toString() {
         return  name;

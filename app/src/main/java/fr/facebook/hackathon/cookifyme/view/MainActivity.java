@@ -37,9 +37,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate: Started");
 
-        dataBase = new DataBaseHelper(this);
-        Log.d(TAG, "onCreate: created database");
+       // dataBase = new DataBaseHelper(this);
+        //Log.d(TAG, "onCreate: created database");
 
+        Ingredient i = dataBase.getIngridient("Apple");
+        System.out.println(i);
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);
