@@ -15,6 +15,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+import ai.fritz.core.Fritz;
 import fr.facebook.hackathon.cookifyme.R;
 import fr.facebook.hackathon.cookifyme.model.Category;
 import fr.facebook.hackathon.cookifyme.model.Ingredient;
@@ -31,11 +32,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d(TAG, "onCreate: Started");
 
+        // Initialize Fritz
+        Fritz.configure(this, "9e6ae6d75f1e48b4aafb68fe47f99f32");
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         BottomNavigationView navigation = findViewById(R.id.btn_recruiter);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         fm.beginTransaction().add(R.id.main_frame, ingredientsFm).show(ingredientsFm).commit();

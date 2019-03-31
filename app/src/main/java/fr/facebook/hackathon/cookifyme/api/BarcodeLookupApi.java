@@ -15,7 +15,8 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import fr.facebook.hackathon.cookifyme.model.Ingredient;
-import fr.facebook.hackathon.cookifyme.view.AddBarcodeIngredientActivity;
+import fr.facebook.hackathon.cookifyme.view.IngredientsFragment;
+import fr.facebook.hackathon.cookifyme.view.MainActivity;
 
 public class BarcodeLookupApi {
     private static BarcodeLookupApi api;
@@ -41,11 +42,12 @@ public class BarcodeLookupApi {
                 Ingredient ingredient = new Ingredient();
 
                 ingredient.setName(jsonObject.get("product_name").getAsString());
-                ingredient.setCategory(jsonObject.get("category").getAsString());
-                ingredient.setQuantity(2);
+                ingredient.setImage(jsonObject.get("images").getAsJsonArray().get(0).getAsString());
 
-                Intent intent = new Intent(context, AddBarcodeIngredientActivity.class);
-                intent.putExtra("ingredient", ingredient);
+                IngredientsFragment.ingredients.add(ingredient);
+                IngredientsFragment.adapter.notifyDataSetChanged();
+
+                Intent intent = new Intent(context, MainActivity.class);
                 context.startActivity(intent);
             }
         }, new Response.ErrorListener() {

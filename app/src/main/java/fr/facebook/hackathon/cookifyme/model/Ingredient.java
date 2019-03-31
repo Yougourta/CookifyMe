@@ -6,8 +6,7 @@ import java.io.Serializable;
 public class Ingredient implements Serializable {
 
     private String name;
-    private String category;
-    private int quantity;
+    private String image;
 
     public String getName() {
         return name;
@@ -17,32 +16,13 @@ public class Ingredient implements Serializable {
         this.name = name;
     }
 
-    public String getCategory() {
-        return category;
+    public String getImage() {
+        return image;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setImage(String category) {
+        this.image = category;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public Ingredient(String name, String category, int quantity) {
-        this.name = name;
-        this.category = category;
-        this.quantity = quantity;
-    }
-
-    public Ingredient() { }
-
-    @Override
-    public String toString() {
-        return  name + ", " + quantity;
-    }
+    public Ingredient() {}
 }
