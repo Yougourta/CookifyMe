@@ -1,5 +1,6 @@
 package fr.facebook.hackathon.cookifyme.view;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -17,6 +18,7 @@ import java.util.List;
 
 import fr.facebook.hackathon.cookifyme.R;
 import fr.facebook.hackathon.cookifyme.model.Category;
+import fr.facebook.hackathon.cookifyme.model.DataBaseHelper;
 import fr.facebook.hackathon.cookifyme.model.Ingredient;
 
 import fr.facebook.hackathon.cookifyme.R;
@@ -27,11 +29,17 @@ public class MainActivity extends AppCompatActivity {
     private final Fragment ingredientsFm = new IngredientsFragment();
     private final Fragment recepiesFm = new RecepiesFragment();
     private static final String TAG = "IngredientsList";
+    DataBaseHelper dataBase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate: Started");
+
+        dataBase = new DataBaseHelper(this);
+        Log.d(TAG, "onCreate: created database");
+
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -62,4 +70,6 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
     };
+
+
 }
