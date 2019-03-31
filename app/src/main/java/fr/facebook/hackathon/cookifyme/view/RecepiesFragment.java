@@ -27,6 +27,8 @@ public class RecepiesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        allRecipes.clear();
+        canDoRecipes.clear();
 
         Recipe recipe = new Recipe();
         recipe.setImage("https://www.goodfood.com.au/content/dam/images/2/r/i/0/4/image.related.articleLeadwide.620x349.2ri2a.png/1376978156587.jpg");
